@@ -1,0 +1,136 @@
+html, body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 375px;
+
+  &.fixed, &.lg-on {
+    overflow: hidden;
+    margin-right: 0 !important;
+  }
+}
+
+html {
+  //scroll-behavior: smooth;
+  font-size: 16px;
+  @include media-breakpoint-up(xl) {
+    font-size: 18px;
+  }
+  @include media-breakpoint-up(xxl) {
+    font-size: 20px;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  line-height: 1.4;
+  font-weight: normal;
+  color: $dark;
+  background-color: $light-grey;
+  @include custom-scrollbar;
+}
+
+#page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+body:not(.home) {
+  main {
+    padding: 50px 0 100px;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.container-fluid {
+  @include media-breakpoint-up(md) {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+.row-thin {
+  margin: 0 -5px;
+
+  [class^="col"] {
+    padding: 0 5px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+  transition: color .3s;
+
+  &:hover {
+    color: $hover;
+  }
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+img {
+  &.lazyload {
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  &.lazyloaded {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  font-family: $font-secondary;
+  margin: 0 0 0.3em;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+h1, .h1 {
+  font-size: 3.5em;
+  line-height: 1.2;
+}
+
+h2, .h2 {
+  font-size: 2.5em;
+}
+
+h3, .h3 {
+  font-size: 1.5em;
+}
+
+h4, .h4 {
+  font-size: 1.25em;
+}
+
+h5, .h5 {
+  font-size: 1.125em;
+}
+
+.font-primary {
+  font-family: $font-primary;
+}
+
+.font-secondary {
+  font-family: $font-secondary;
+}
+
+.vc {
+  transition: opacity 1s;
+
+  &:not(.visible) {
+    opacity: 0;
+  }
+}

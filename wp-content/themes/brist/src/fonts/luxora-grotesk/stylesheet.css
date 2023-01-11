@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('LuxoraGrotesk-Light.woff2') format('woff2'),
+    url('LuxoraGrotesk-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

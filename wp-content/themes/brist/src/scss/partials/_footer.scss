@@ -1,0 +1,45 @@
+footer {
+  background-color: $white;
+  padding: 65px 0 35px;
+  text-align: center;
+  @include media-breakpoint-up(lg){
+    text-align: initial;
+  }
+
+  a {
+    &[href^="mailto:"] {
+      font-size: 1.5rem;
+      line-height: 1.1;
+      margin: 0 0 0.5em;
+      display: inline-block;
+    }
+
+    &[href^="tel:"] {
+
+    }
+  }
+
+  .copyright {
+    font-size: 0.875rem;
+    margin-top: 100px;
+  }
+
+  .menu {
+    margin: 0 -12px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    @include media-breakpoint-up(lg) {
+      justify-content: flex-start;
+    }
+
+    li {
+      padding: 0 12px;
+    }
+
+    a {
+      display: block;
+    }
+  }
+}

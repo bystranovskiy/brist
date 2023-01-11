@@ -1,0 +1,143 @@
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  //background-color: $white;
+  backdrop-filter: blur(2px);
+  background-color: rgba($white, .9);
+  z-index: 998;
+
+  .menu {
+    padding: 20px 0 40px;
+    list-style: none;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 -6px;
+
+    .menu-item {
+      padding: 0 6px;
+
+      a {
+        text-decoration: none;
+        color: $dark;
+        font-family: $font-secondary;
+        line-height: 1.2;
+        display: block;
+        position: relative;
+        font-size: .875rem;
+
+        @include media-breakpoint-up(sm) {
+          font-size: 1rem;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 50%;
+          transform: translateX(-50%);
+          height: 1px;
+          width: 18px;
+          border-radius: 1px;
+          transition: .3s;
+          opacity: 0;
+          background-color: $dark;
+        }
+
+        &:hover {
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        order: 0;
+      }
+
+      &:nth-child(2) {
+        order: 1;
+      }
+
+      &.menu-item-type-logo {
+        order: 2;
+        margin: 0 auto;
+        padding: 0;
+        transition: filter 1s;
+
+        a {
+          &:after {
+            display: none;
+          }
+        }
+
+        img {
+          height: auto;
+          max-width: 70px;
+          @include media-breakpoint-up(sm) {
+            max-width: 100%;
+          }
+        }
+
+      }
+
+      &:nth-child(3) {
+        order: 3;
+      }
+
+      &:nth-child(4) {
+        order: 4;
+      }
+
+      &.current-menu-item {
+        a:after {
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+}
+
+body {
+  &.lg-on {
+    header {
+      background-color: $white;
+    }
+  }
+
+  &.home {
+    header {
+      transition: background-color 1s, transform .5s;
+      position: fixed;
+
+    }
+    &:not(.lg-on){
+      header {
+        &:not(.sticky) {
+          // background-color: transparent;
+          background: rgba($white, .14);
+          backdrop-filter: blur(2px);
+          transform: translateY(-100%);
+
+          .menu {
+            .menu-item {
+              a {
+                color: $white;
+
+                &:after {
+                  background-color: $white;
+                }
+              }
+
+              &.menu-item-type-logo {
+                filter: invert(1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

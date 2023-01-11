@@ -1,0 +1,132 @@
+@import "../partials/variables";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+body {
+  &.page-template-page-contact {
+    header {
+      transition: background-color 1s;
+
+      &:not(.sticky) {
+        background-color: transparent;
+        backdrop-filter: none;
+      }
+    }
+
+    main {
+      padding: 0;
+    }
+  }
+}
+
+#page {
+  overflow: hidden;
+}
+
+.section-contact {
+  height: 100%;
+  text-align: center;
+
+  @include media-breakpoint-up(lg) {
+    padding: 100px 0 0;
+    text-align: left;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 16px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: 1.06vw;
+  }
+
+  .greeting-text, .sitename-text, .slash-text {
+    font-family: "Tahoma", sans-serif;
+    font-weight: 700;
+    color: $white;
+  }
+
+  .greeting-text {
+    font-size: 4.5rem;
+    transition: .5s;
+    user-select: none;
+    display: inline-block;
+    transform-origin: top left;
+
+    &:hover {
+      color: $hover;
+      opacity:.11;
+      transition: transform .5s, opacity .5s, color .2s;
+      transform: scale(.85);
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 7rem;
+    }
+    @include media-breakpoint-up(xl) {
+      font-size: 7.9vw;
+    }
+  }
+
+  .sitename-text, .slash-text {
+    position: absolute;
+    transition: .5s;
+    user-select: none;
+
+    &:hover {
+      color: $hover;
+      opacity:.11;
+      transition: transform .5s, opacity .5s, color .2s;
+      transform: scale(.85);
+    }
+
+    z-index: 1;
+  }
+
+  .sitename-text {
+    right: 0;
+    top: 500px;
+    font-size: 7.5em;
+
+    @include media-breakpoint-up(lg) {
+      top: -175px;
+      font-size: 9.7vw;
+      right: -8vw;
+      transform-origin: top left;
+    }
+  }
+
+  .slash-text {
+    font-size: 9em;
+    bottom: 0;
+    left: 70%;
+    display: none;
+    line-height: 1.2;
+    @include media-breakpoint-up(lg) {
+      display: block;
+      transform-origin: bottom left;
+    }
+  }
+
+  a {
+    &.text-underline {
+      &:not(:hover) {
+        text-decoration: underline;
+      }
+    }
+
+    &[href^="mailto:"] {
+      font-size: 1.5em;
+      line-height: 1.1;
+      margin: 0 0 0.5em;
+      display: inline-block;
+    }
+  }
+
+  .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}

@@ -1,0 +1,205 @@
+@import "../partials/variables";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.section-first-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $light-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .container {
+    width: auto;
+  }
+
+  .blockquote-text {
+    line-height: 1.2;
+    margin-bottom: 5rem;
+    transition: opacity 1s 1s, transform 1s 1s, color 1s 2.5s;
+    color: $hover;
+    font-size: 3rem;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 4rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      font-size: 5.875rem;
+    }
+  }
+
+  .blockquote-author {
+    line-height: 1.2;
+    transition: opacity 1s 1.7s, transform 1s 1.7s, color 1s 2.5s;
+    font-size: 1.25rem;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.5rem;
+    }
+
+    &:before {
+      width: 118px;
+      height: 1px;
+      content: "";
+      background-color: $dark;
+      margin-right: 40px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .icon-close {
+    position: absolute;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: opacity 1s 3s, color .5s, background-color .5s;
+    width: 66px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($white, .14);
+    border-radius: 50%;
+    top: 15px;
+    right: 15px;
+
+    @include media-breakpoint-up(lg) {
+      top: 60px;
+      right: 60px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      top: 100px;
+      right: 100px;
+    }
+
+    &:hover {
+      color: $hover;
+      background-color: $white;
+    }
+  }
+}
+
+body {
+  &:not(.loaded) {
+    .section-first-screen {
+      .blockquote-text {
+        opacity: 0;
+        transform: translateY(20px);
+        color: $dark;
+      }
+
+      .blockquote-author {
+        opacity: 0;
+        transform: translateY(20px);
+        color: $hover;
+      }
+
+      .icon-close {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.section-hero.slick-slider {
+
+  .hero-item {
+    height: 100vh;
+    height: var(--app-height);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slick-dots {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 23px;
+
+    @include media-breakpoint-up(lg) {
+      bottom: 40px;
+    }
+
+    li {
+      padding: 5px;
+
+      button {
+        font-size: 0;
+        border: 0;
+        border-radius: 5px;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+        background-color: rgba($white, .4);
+        transition: .5s;
+        padding: 0;
+
+        &:hover {
+          background-color: $white;
+        }
+      }
+
+      &.slick-active {
+        button {
+          background-color: $white;
+          width: 27px;
+        }
+      }
+    }
+  }
+}
+
+.go-next-wrapper {
+  position: absolute;
+  top: var(--app-height);
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 10px));
+  @include media-breakpoint-up(lg) {
+    transform: translate(-50%, calc(-100% - 30px));
+  }
+}
+
+.go-next {
+  background: rgba($white, .14);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  z-index: 1;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: background-color .3s;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+
+  @include media-breakpoint-up(lg) {
+    width: 66px;
+    height: 66px;
+    font-size: 30px;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: rgba($white, .24);
+  }
+}
